@@ -1,0 +1,50 @@
+{
+  "session": {
+    "sessionId": "SessionId.1234",
+    "application": {
+      "applicationId": "amzn1.echo-sdk-ams.app.1234"
+    },
+    "attributes": {
+      "promptData": {
+        "searchResults": [
+          {
+            "name": "Silicon Wadi",
+            "tvdbid": 268854
+          },
+          {
+            "first_aired": "2014-04-06",
+            "name": "Silicon Valley",
+            "tvdbid": 277165
+          },
+          {
+            "first_aired": "2012-11-01",
+            "name": "Silicon Valley Rebels",
+            "tvdbid": 283723
+          },
+          {
+            "first_aired": "2012-11-05",
+            "name": "Start-ups: Silicon Valley",
+            "tvdbid": 263541
+          }
+        ],
+        "yesAction": "addShow",
+        "yesResponse": "Added Silicon Wadi to your list of shows to download.",
+        "noAction": "suggestNextShow",
+        "noResponse": "Ok, did you mean Silicon Valley?"
+      }
+    },
+    "user": {
+      "userId": "amzn1.echo-sdk-account.1234"
+    },
+    "new": false
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.1234",
+    "timestamp": "2016-01-01T00:00:00Z",
+    "intent": {
+      "name": "AMAZON.NoIntent",
+      "slots": {}
+    }
+  }
+}

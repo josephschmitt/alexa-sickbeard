@@ -1,0 +1,31 @@
+{
+  "intents": [
+    {
+      "intent": "AddShow",
+      "slots": [
+        {
+          "name": "showName",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "FindShow",
+      "slots": [
+        {
+          "name": "showName",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
