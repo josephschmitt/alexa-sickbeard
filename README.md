@@ -1,11 +1,11 @@
-# Couch Potato Alexa Skill
+# SickBeard Alexa Skill
 
-This is a skill built for Amazon's Alexa service that tells you about your Couch Potato queue. It
+This is a skill built for Amazon's Alexa service that tells you about your SickBeard queue. It
 allows you to ask Alexa the following:
 
-> Alexa, ask Couch Potato to add The Godfather
+> Alexa, ask SickBeard to add Silicon Valley
 
-> Alexa, ask Couch Potato if The Dark Knight is on the list
+> Alexa, ask SickBeard if Jessica Jones is on the list
 
 If you're just getting started developing skills for Alexa, I'd recommend reading [Getting Started
 with the Alexa Skills
@@ -15,8 +15,8 @@ Function](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/d
 
 ## Configuring The Skill
 
-To configure the skill, open up the `.env` file and fill in the correct values for `CP_URL`, which
-should point to your Couch Potato server, and `CP_API_KEY` which should have your server's API key.
+To configure the skill, open up the `.env` file and fill in the correct values for `SB_URL`, which
+should point to your SickBeard server, and `SB_API_KEY` which should have your server's API key.
 
 ## Testing The Skill Locally
 
@@ -40,7 +40,7 @@ in the Sample Utterances field, copy and paste the contents of
 
 The skill is built to be easily hosted on Amazon's [AWS
 Lambda service](https://aws.amazon.com/lambda/). Create your Lambda function (using the
-alexa-skills-kit-color-expert blueprint) and make sure you choose Node.js as the runtime. After 
+alexa-skills-kit-color-expert blueprint) and make sure you choose Node.js as the runtime. After
 you've created your Lambda function, look at the top right of the page to get your Lambda ARN
 number and put that in the Alexa Skill Information Endpoint field.
 
