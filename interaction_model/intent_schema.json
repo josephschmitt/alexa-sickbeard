@@ -5,7 +5,7 @@
       "slots": [
         {
           "name": "showName",
-          "type": "AMAZON.LITERAL"
+          "type": "LITERAL"
         }
       ]
     },
@@ -14,7 +14,7 @@
       "slots": [
         {
           "name": "showName",
-          "type": "AMAZON.LITERAL"
+          "type": "LITERAL"
         }
       ]
     },
