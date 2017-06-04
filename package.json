@@ -1,6 +1,6 @@
 {
   "name": "alexa-sickbeard",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A skill to ask Alexa about your SickBeard queue.",
   "main": "dist/index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "url": "https://github.com/josephschmitt/alexa-sickbeard.git"
   },
   "dependencies": {
-    "alexa-app": "^2.4.0",
+    "alexa-app": "^4.0.1",
     "config": "^1.26.1",
     "node-sickbeard": "0.0.1"
   },
