@@ -1,6 +1,4 @@
-import config from 'config';
-import SickBeard from 'node-sickbeard';
-
+import * as api from './api.js';
 import buildPrompt from './buildPrompt.js';
 import createSearchResponse from './createSearchResponse.js';
 
@@ -10,8 +8,6 @@ import {
   NO_SHOW_QUEUED,
   WELCOME_DESCRIPTION
 } from './responses.js';
-
-const sb = new SickBeard(config.get('alexa-sickbeard.server'));
 
 export default function handleLaunchIntent(req, resp) {
   resp
@@ -23,8 +19,7 @@ export default function handleLaunchIntent(req, resp) {
 export function handleFindShowIntent(req, resp) {
   const showName = req.slot('showName');
 
-  return sb.cmd('shows').then((searchResp) => {
-    const shows = searchResp.data;
+  return api.list().then((shows) => {
     const result = shows && Object.keys(shows).length ? shows.find((show) => {
       return show.show_name.toLowerCase().indexOf(showName.toLowerCase()) >= 0;
     }) : null;
@@ -32,8 +27,8 @@ export function handleFindShowIntent(req, resp) {
     if (!result) {
       resp.say(NO_SHOW_QUEUED(showName));
 
-      sb.cmd('sb.searchtvdb', {name: showName}).then((searchResults) => {
-        createSearchResponse(searchResults.data.results, req, resp).send();
+      return api.search(showName).then((shows) => {
+        createSearchResponse(shows, req, resp).send();
       });
     }
     else {
@@ -47,8 +42,8 @@ export function handleFindShowIntent(req, resp) {
 export function handleAddShowIntent(req, resp) {
   const showName = req.slot('showName');
 
-  return sb.cmd('sb.searchtvdb', {name: showName}).then((searchResults) => {
-    createSearchResponse(searchResults.data.results, req, resp).send();
+  return api.search(showName).then((shows) => {
+    createSearchResponse(shows, req, resp).send();
   });
 }
 
@@ -63,10 +58,7 @@ export function handleYesIntent(req, resp) {
   else if (promptData.yesAction === 'addShow') {
     show = promptData.searchResults[0];
 
-    return sb.cmd('show.addnew', {
-      tvdbid: show.tvdbid,
-      status: 'wanted'
-    }).then(() => {
+    return api.add(show.tvdbid).then(() => {
       resp
         .say(promptData.yesResponse)
         .send();
