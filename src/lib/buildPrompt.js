@@ -1,8 +1,8 @@
-module.exports = function buildPrompt(shows) {
-  var promptData = {
-      searchResults: shows.slice(0, 5),
-      yesAction  : 'addShow',
-      yesResponse: ['Added', shows[0].name, 'to your list of shows to download.'].join(' ')
+export default function buildPrompt(shows) {
+  const promptData = {
+    searchResults: shows.slice(0, 5),
+    yesAction: 'addShow',
+    yesResponse: ['Added', shows[0].name, 'to your list of shows to download.'].join(' ')
   };
 
   if (shows.length > 1) {
@@ -15,4 +15,4 @@ module.exports = function buildPrompt(shows) {
   }
 
   return promptData;
-};
+}

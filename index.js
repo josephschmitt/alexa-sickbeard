@@ -1,2 +1,2 @@
 // Lambda entry point
-exports.handler = require('./dist/app.js');
+exports.handler = require('./dist/app.js').default;

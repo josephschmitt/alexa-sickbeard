@@ -1,20 +1,27 @@
-var handlers = require('./lib/handlers.js');
+import Alexa from 'alexa-app';
 
-var alexa = require('alexa-app');
-var app = new alexa.app('sickBeard');
+import handleLaunchIntent, {
+  handleFindShowIntent,
+  handleAddShowIntent,
+  handleYesIntent,
+  handleNoIntent,
+  handleCancelIntent
+} from './lib/handlers.js';
 
-app.launch(handlers.handleLaunchIntent);
-app.intent('FindShow', handlers.handleFindShowIntent);
-app.intent('AddShow', handlers.handleAddShowIntent);
-app.intent('AMAZON.YesIntent', handlers.handleYesIntent);
-app.intent('AMAZON.NoIntent', handlers.handleNoIntent);
-app.intent('AMAZON.CancelIntent', handlers.handleCancelIntent);
+const app = new Alexa.app('sickBeard');
 
-app.post = function(request, response, type, exception) {
+app.launch(handleLaunchIntent);
+app.intent('FindShow', handleFindShowIntent);
+app.intent('AddShow', handleAddShowIntent);
+app.intent('AMAZON.YesIntent', handleYesIntent);
+app.intent('AMAZON.NoIntent', handleNoIntent);
+app.intent('AMAZON.CancelIntent', handleCancelIntent);
+
+app.post = function (request, response, type, exception) {
   if (exception) {
     // Always turn an exception into a successful response
     response.clear().say('An error occured: ' + exception).send();
   }
 };
 
-module.exports = app.lambda();
+export default app.lambda();

@@ -27,6 +27,8 @@
     "babel-cli": "^6.24.1",
     "babel-plugin-root-import": "^5.1.0",
     "babel-preset-env": "^1.5.1",
-    "node-lambda": "^0.7.1"
+    "eslint": "^3.19.0",
+    "eslint-plugin-import": "^2.3.0",
+    "node-lambda": "^0.8.15"
   }
 }
