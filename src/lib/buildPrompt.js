@@ -1,14 +1,14 @@
 import {
   REPROMPT_END,
   REPROMPT_NO,
-  REPROMT_YES
+  REPROMPT_YES
 } from './responses.js';
 
 export default function buildPrompt(shows) {
   const promptData = {
     searchResults: shows.slice(0, 5),
     yesAction: 'addShow',
-    yesResponse: REPROMT_YES(shows[0].name)
+    yesResponse: REPROMPT_YES(shows[0].name)
   };
 
   if (shows.length > 1) {
