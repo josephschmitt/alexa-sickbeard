@@ -1,13 +1,11 @@
-'use strict';
-
 var _ = require('underscore');
 var SickBeard = require('node-sickbeard');
-var utils = require('./utils.js');
 
-var WELCOME_DESCRIPTION = 'This skill allows you to manage your SickBeard show list.';
-var HELP_RESPONSE = ['You can ask SickBeard about the shows in your queue or add new shows',
-    'to it. Try asking "is Silicon Valley on the list?". If it\'s not and you want to add it, try',
-    'saying "add Silicon Valley".'].join(' ');
+var buildPrompt = require('./buildPrompt.js');
+var createSearchResponse = require('./createSearchResponse.js');
+
+var WELCOME_DESCRIPTION = require('./responses.js').WELCOME_DESCRIPTION;
+var HELP_RESPONSE = require('./responses.js').HELP_RESPONSE;
 
 var config = require('dotenv').config();
 var sb = new SickBeard({
@@ -35,9 +33,7 @@ function handleFindShowIntent(req, resp) {
       resp.say('Couldn\'t find ' + showName + ' queued for download. ');
 
       sb.cmd('sb.searchtvdb', {name: showName}).then(function (searchResults) {
-        utils
-          .createSearchResponse(searchResults.data.results, resp)
-          .send();
+        createSearchResponse(searchResults.data.results, resp).send();
       });
     }
     else {
@@ -59,9 +55,7 @@ function handleAddShowIntent(req, resp) {
   var showName = req.slot('showName');
 
   sb.cmd('sb.searchtvdb', {name: showName}).then(function (searchResults) {
-    utils
-      .createSearchResponse(searchResults.data.results, resp)
-      .send();
+    createSearchResponse(searchResults.data.results, resp).send();
   });
 
   //Async response
@@ -112,7 +106,7 @@ function handleNoIntent(req, resp) {
     var shows = promptData.searchResults;
     resp
       .say(promptData.noResponse)
-      .session('promptData', utils.buildPrompt(shows.slice(1)))
+      .session('promptData', buildPrompt(shows.slice(1)))
       .shouldEndSession(false)
       .send();
   }

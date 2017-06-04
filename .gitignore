@@ -1,3 +1,4 @@
+.DS_Store
 deploy.env
-lambda.zip
+alexa-sickbeard.zip
 node_modules/

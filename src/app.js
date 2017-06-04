@@ -1,6 +1,4 @@
-'use strict';
-
-var handlers = require('./handlers.js');
+var handlers = require('./lib/handlers.js');
 
 var alexa = require('alexa-app');
 var app = new alexa.app('sickBeard');
@@ -19,4 +17,4 @@ app.post = function(request, response, type, exception) {
   }
 };
 
-module.exports = app;
+module.exports = app.lambda();

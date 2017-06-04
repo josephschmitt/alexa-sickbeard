@@ -1,4 +1,2 @@
-'use strict';
-
-var app = require('./lib');
-exports.handler = app.lambda();
+// Lambda entry point
+exports.handler = require('./src/app.js');

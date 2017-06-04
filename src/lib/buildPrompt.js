@@ -1,4 +1,4 @@
-function buildPrompt(shows) {
+module.exports = function buildPrompt(shows) {
   var promptData = {
       searchResults: shows.slice(0, 5),
       yesAction  : 'addShow',
@@ -15,20 +15,4 @@ function buildPrompt(shows) {
   }
 
   return promptData;
-}
-
-function createSearchResponse(shows, resp) {
-  if(!shows || !shows.length) {
-    return resp.say('No show found for ' + showName).send();
-  }
-
-  return resp
-    .say(['Add', shows[0].name, 'to your list?'].join(' '))
-    .session('promptData', buildPrompt(shows.slice(0, 5)))
-    .shouldEndSession(false);
-}
-
-module.exports = {
-  buildPrompt: buildPrompt,
-  createSearchResponse: createSearchResponse
 };
