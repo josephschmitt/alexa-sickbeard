@@ -1,13 +1,14 @@
 {
   "name": "alexa-sickbeard",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A skill to ask Alexa about your SickBeard queue.",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
     "deploy": "npm run prepare; node-lambda deploy",
+    "gen-interaction": "node scripts/gen-interaction.js",
     "package": "npm run prepare; node-lambda package --packageDirectory=./",
-    "prepare": "npm run build; npm run upgrade-config",
+    "prepare": "npm run build; npm run gen-interaction; npm run upgrade-config",
     "prepublishOnly": "npm run package",
     "start": "npm run prepare; node-lambda run",
     "upgrade-config": "node ./scripts/upgrade-config.js"

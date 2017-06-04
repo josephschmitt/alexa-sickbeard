@@ -1,34 +1,46 @@
-AddShow add {How I Met Your Mother|showName}
-AddShow add {Jessica Jones|showName}
-AddShow add {Seinfeld|showName}
-AddShow add {Better Call Saul|showName}
-AddShow add {Parks and Recreation|showName}
-AddShow add {Silicon Valley|showName}
+AddShow add the show {showName} to the list
+AddShow add the series {showName} to the list
+AddShow add {showName} to the list
+AddShow add the show {showName} to the wanted list
+AddShow add the series {showName} to the wanted list
+AddShow add {showName} to the wanted list
+AddShow add the show {showName}
+AddShow add the series {showName}
+AddShow add {showName}
 
-FindShow is {How I Met Your Mother|showName} on the list
-FindShow is {Jessica Jones|showName} on the list
-FindShow is {Seinfeld|showName} on the list
-FindShow is {Better Call Saul|showName} on the list
-FindShow is {Parks and Recreation|showName} on the list
-FindShow is {Silicon Valley|showName} on the list
-
-FindShow if {How I Met Your Mother|showName} is on the list
-FindShow if {Jessica Jones|showName} is on the list
-FindShow if {Seinfeld|showName} is on the list
-FindShow if {Better Call Saul|showName} is on the list
-FindShow if {Parks and Recreation|showName} is on the list
-FindShow if {Silicon Valley|showName} is on the list
-
-FindShow is {How I Met Your Mother|showName} already
-FindShow is {Jessica Jones|showName} already
-FindShow is {Seinfeld|showName} already
-FindShow is {Better Call Saul|showName} already
-FindShow is {Parks and Recreation|showName} already
-FindShow is {Silicon Valley|showName} already
-
-FindShow if {How I Met Your Mother|showName} is already
-FindShow if {Jessica Jones|showName} is already
-FindShow if {Seinfeld|showName} is already
-FindShow if {Better Call Saul|showName} is already
-FindShow if {Parks and Recreation|showName} is already
-FindShow if {Silicon Valley| showName} is already
+FindShow is the show {showName} on the list
+FindShow if the show {showName} on the list
+FindShow is the series {showName} on the list
+FindShow if the series {showName} on the list
+FindShow is {showName} on the list
+FindShow if {showName} on the list
+FindShow is the show {showName} is on the list
+FindShow if the show {showName} is on the list
+FindShow is the series {showName} is on the list
+FindShow if the series {showName} is on the list
+FindShow is {showName} is on the list
+FindShow if {showName} is on the list
+FindShow is the show {showName} already
+FindShow if the show {showName} already
+FindShow is the series {showName} already
+FindShow if the series {showName} already
+FindShow is {showName} already
+FindShow if {showName} already
+FindShow is the show {showName} is already
+FindShow if the show {showName} is already
+FindShow is the series {showName} is already
+FindShow if the series {showName} is already
+FindShow is {showName} is already
+FindShow if {showName} is already
+FindShow is the show {showName} is wanted
+FindShow if the show {showName} is wanted
+FindShow is the series {showName} is wanted
+FindShow if the series {showName} is wanted
+FindShow is {showName} is wanted
+FindShow if {showName} is wanted
+FindShow is the show {showName} is in wanted
+FindShow if the show {showName} is in wanted
+FindShow is the series {showName} is in wanted
+FindShow if the series {showName} is in wanted
+FindShow is {showName} is in wanted
+FindShow if {showName} is in wanted

@@ -1,11 +1,24 @@
 {
   "intents": [
     {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
       "intent": "AddShow",
       "slots": [
         {
           "name": "showName",
-          "type": "AMAZON.LITERAL"
+          "type": "AMAZON.TVSeries",
+          "samples": []
         }
       ]
     },
@@ -14,18 +27,10 @@
       "slots": [
         {
           "name": "showName",
-          "type": "AMAZON.LITERAL"
+          "type": "AMAZON.TVSeries",
+          "samples": []
         }
       ]
-    },
-    {
-      "intent": "AMAZON.YesIntent"
-    },
-    {
-      "intent": "AMAZON.NoIntent"
-    },
-    {
-      "intent": "AMAZON.CancelIntent"
     }
   ]
 }
