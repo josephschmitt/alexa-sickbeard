@@ -1,17 +1,23 @@
+import {
+  REPROMPT_END,
+  REPROMPT_NO,
+  REPROMT_YES
+} from './responses.js';
+
 export default function buildPrompt(shows) {
   const promptData = {
     searchResults: shows.slice(0, 5),
     yesAction: 'addShow',
-    yesResponse: ['Added', shows[0].name, 'to your list of shows to download.'].join(' ')
+    yesResponse: REPROMT_YES(shows[0].name)
   };
 
   if (shows.length > 1) {
     promptData.noAction = 'suggestNextShow';
-    promptData.noResponse = 'Ok, did you mean ' + shows[1].name + '?';
+    promptData.noResponse = REPROMPT_NO(shows[1].name);
   }
   else {
     promptData.noAction = 'endSession';
-    promptData.noResponse = 'Ok. I\'m out of suggestions. Sorry about that.';
+    promptData.noResponse = REPROMPT_END;
   }
 
   return promptData;

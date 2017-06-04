@@ -5,7 +5,9 @@ import buildPrompt from './buildPrompt.js';
 import createSearchResponse from './createSearchResponse.js';
 
 import {
+  ALREADY_WANTED,
   HELP_RESPONSE,
+  NO_SHOW_QUEUED,
   WELCOME_DESCRIPTION
 } from './responses.js';
 
@@ -17,8 +19,8 @@ const sb = new SickBeard({
 
 export default function handleLaunchIntent(req, resp) {
   resp
-    .say(WELCOME_DESCRIPTION)
-    .say(HELP_RESPONSE)
+    .say(WELCOME_DESCRIPTION())
+    .say(HELP_RESPONSE())
     .send();
 }
 
@@ -32,7 +34,7 @@ export function handleFindShowIntent(req, resp) {
     }) : null;
 
     if (!result) {
-      resp.say('Couldn\'t find ' + showName + ' queued for download. ');
+      resp.say(NO_SHOW_QUEUED(showName));
 
       sb.cmd('sb.searchtvdb', {name: showName}).then((searchResults) => {
         createSearchResponse(searchResults.data.results, req, resp).send();
@@ -40,11 +42,7 @@ export function handleFindShowIntent(req, resp) {
     }
     else {
       resp
-        .say([
-          'It looks like',
-          result.show_name.replace('\'s', 's'),
-          'is already on your list.'
-        ].join(' '))
+        .say(ALREADY_WANTED(result.show_name.replace('\'s', 's')))
         .send();
     }
   });
@@ -111,5 +109,5 @@ export function handleNoIntent(req, resp) {
 }
 
 export function handleCancelIntent(req, resp) {
-  resp.say(HELP_RESPONSE).send();
+  resp.say(HELP_RESPONSE()).send();
 }

@@ -1,6 +1,6 @@
 {
   "name": "alexa-sickbeard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A skill to ask Alexa about your SickBeard queue.",
   "main": "dist/index.js",
   "scripts": {
