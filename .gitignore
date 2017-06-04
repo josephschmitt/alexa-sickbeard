@@ -1,4 +1,5 @@
 .DS_Store
 deploy.env
 alexa-sickbeard.zip
+dist/
 node_modules/

@@ -1,13 +1,15 @@
 {
   "name": "alexa-sickbeard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A skill to ask Alexa about your SickBeard queue.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "deploy": "node-lambda deploy",
-    "package": "node-lambda package --packageDirectory=./",
+    "build": "babel src -d dist",
+    "deploy": "npm run prepare; node-lambda deploy",
+    "package": "npm run prepare; node-lambda package --packageDirectory=./",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run package",
-    "start": "node-lambda run"
+    "start": "npm run prepare; node-lambda run"
   },
   "author": "Joe Schmitt",
   "license": "MIT",
@@ -22,6 +24,9 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-preset-env": "^1.5.1",
     "node-lambda": "^0.7.1"
   }
 }
