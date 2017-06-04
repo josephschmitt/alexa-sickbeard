@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import config from 'config';
 import SickBeard from 'node-sickbeard';
 
 import buildPrompt from './buildPrompt.js';
@@ -11,11 +11,7 @@ import {
   WELCOME_DESCRIPTION
 } from './responses.js';
 
-const config = require('dotenv').config();
-const sb = new SickBeard({
-  url: config.SB_URL,
-  apikey: config.SB_API_KEY
-});
+const sb = new SickBeard(config.get('alexa-sickbeard.server'));
 
 export default function handleLaunchIntent(req, resp) {
   resp
@@ -29,7 +25,7 @@ export function handleFindShowIntent(req, resp) {
 
   return sb.cmd('shows').then((searchResp) => {
     const shows = searchResp.data;
-    const result = shows && Object.keys(shows).length ? _.find(shows, (show) => {
+    const result = shows && Object.keys(shows).length ? shows.find((show) => {
       return show.show_name.toLowerCase().indexOf(showName.toLowerCase()) >= 0;
     }) : null;
 

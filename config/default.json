@@ -1,0 +1,8 @@
+{
+  "alexa-sickbeard": {
+    "server": {
+      "url": "http://localhost:9090",
+      "apikey": ""
+    }
+  }
+}
